@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="register-container">
+    
+      <div class="register-page">
+        {% if page == 'register' %}
+        <div class="register-page-wrapper">
+            <form action="" method="post" enctype="multipart/form-data" onsubmit="target.preventDefault()">
+                {% csrf_token %}
+
+                <h3>Fill all the compulsary forms labelled <span aria-label="required">*</span></h3>
+            
+               <div class="form" method="post">
+                {% for fields in form %}
+
+                <div class="floatedFormContainer" id="floatedFormContainer" >
+                    <label for="label_id">{{fields.label}}</label>
+                    {% comment %} <input type="text" name="lname" id="lname" data-placeholder=""> {% endcomment %}
+                    {{fields}}
+                </div>
+                {% endfor %}
+
+                {% comment %} <div class="floatedFormContainer" id="floatedFormContainer" >
+                    <label for="fname">Firstname:</label>
+                    <input type="text" name="fname" id="fname" data-placeholder="">
+                </div>
+                <div class="floatedFormContainer" id="floatedFormContainer" >
+                    <label for="uname">Username:</label>
+                    <input type="text" name="uname" id="uname" data-placeholder="">
+                </div>
+                <div class="floatedFormContainer" id="floatedFormContainer">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" data-placeholder="">
+                </div>
+                <div class="floatedFormContainer" id="floatedFormContainer">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="pwd" id="pwd" data-placeholder="">
+                </div>
+                <div class="floatedFormContainer" id="floatedFormContainer">
+                    <label for="rpwd">Retype Password:</label>
+                    <input type="password" name="rpwd" id="rpwd" data-placeholder="">
+                </div> {% endcomment %}
+                <div class="btn-wrapper">
+                    <input type="submit" id="btn" class="btn" value="Register">
+                    <br/><br/>
+                    <a href="{% url 'login' %}"><input type="button" name="" id="btn" class="btn-2" value="Login"></a>
+                </div>
+
+            
+               </div>
+            
+            </form>
+        </div>
+        {% else %}
+        <div class="register-page-wrapper">
+            <form action="" method="post" enctype="multipart/form-data" onsubmit="target.preventDefault()">
+                {% csrf_token %}
+                <h3>Login</h3>
+             
+               <div class="form">
+                
+                <div class="floatedFormContainer" id="floatedFormContainer">
+                    <label for="lname">Email:</label>
+                    <input type="email" name="email" id="email" data-placeholder="">
+                </div>
+                <div class="floatedFormContainer" id="floatedFormContainer">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="pwd" id="pwd" data-placeholder="">
+                </div>
+                <div class="btn-wrapper">
+                    <input type="submit" id="btn" class="btn" value="Login">
+                    <br/><br/>
+                    <a href="{% url 'register' %}"><input type="button" name="" id="btn" class="btn-2" value="Register"></a>
+                </div>
+
+            
+               </div>
+            
+            </form>
+        </div>
+        {% endif %}
+      </div>
+
+
+      {% comment %} <script src="./script.js"></script> {% endcomment %}
+      <script src="{% static 'js/floatedForm.js' %}"></script>
+</div>
+
+{% endblock content %}

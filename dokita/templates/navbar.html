@@ -1,0 +1,76 @@
+{% load static %}
+
+<header>
+    <div class="navbar">
+      <div class="navbar-wrapper">
+        <div class="nav-left">
+          <div class="brand-name-wrapper">
+            <a href="" class="brand-name">Dokita</a>
+          </div>
+        </div>
+
+        <div class="nav-center">
+          <div class="menu-wrapper">
+            <ul class="menu">
+              <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="" class="nav-link">About</a></li>
+              <li class="nav-item">
+                <a href="{% url 'blogs' %}" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link btn">Contact Us</a>
+              </li>
+              {% if not request.user.is_authenticated %}
+              <li class="nav-item">
+                <a href="{% url 'register' %}" class="nav-link">Login / Sign Up</a>
+              </li>
+              {% else %}
+              <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+              <li class="nav-item">
+                <a href="./settings.html" class="nav-link">Settings</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="hamburger-wrapper">
+            <ul class="hamburger">
+              <li class="bars"></li>
+              <li class="bars"></li>
+              <li class="bars"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topBar">
+      <div class="topBar-wrapper">
+        <div class="topBarItems leftItem">
+          <i class="fa fa-brands fa-facebook"></i>
+          <i class="fa fa-brands fa-instagram"></i>
+          <i class="fa fa-brands fa-twitter"></i>
+          <i class="fa fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="topBarItems centerItem">
+          <div class="mode-wrapper">
+              <span>t</span>
+              <span>v</span>
+          </div>
+        </div>
+        <div class="topBarItems rightItem">
+          <div class="search-wrapper">
+              <form action="" method="get">
+                  <input type="search" name="" id="">
+                  <i class="fa fa-solid fa-search"></i>          
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
