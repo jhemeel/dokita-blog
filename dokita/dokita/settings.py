@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'authy.apps.AuthyConfig',
     'base.apps.BaseConfig',
     'fontawesomefree',
+    "verify_email.apps.VerifyEmailConfig",
 ]
 
 AUTH_USER_MODEL = 'authy.User'
