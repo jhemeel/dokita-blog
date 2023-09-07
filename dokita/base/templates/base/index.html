@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -62,7 +63,7 @@
 
     <div class="blog-link">
         <div class="blog-link-wrapper">
-            <a href=""  class="btn-lg">Go to Blogs</a>
+            <a href="{% url 'blogs' %}"  class="btn-lg">Go to Blogs</a>
         </div>
     </div>
 </main>

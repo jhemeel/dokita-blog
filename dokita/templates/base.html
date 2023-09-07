@@ -19,24 +19,30 @@
     
     {% include 'navbar.html' %}
 
-    {% if messages %}
-    
-    {% for message in messages %}
-    
-    <ul class="messages">
-        <li>
-            {{message}}
-        </li>
-    </ul>
-
-    {% endfor %}
-    
-    {% endif %}
+    <div style='position: relative; top:50px'>
+        {% if messages %}
+            
+        <ul class="messages">
+            {% for message in messages %}
+            
+            <li class="{{message.tags}}">
+        
+                {{message | safe}}
+                <a href="" class="close"><i class="fa fa-multiply"></i></a>
+        
+            </li>
+            
+            {% endfor %}
+        </ul>
+        
+        {% endif %}     
+    </div>
 
     {% block content %}
     
     {% endblock content %}
 
     <script src=" {% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/scroll.js' %}"></script>
 </body>
 </html>

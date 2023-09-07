@@ -146,6 +146,76 @@
     color: var(--btn-color);
   }
 
+  /* messages styling starts */
+ul.messages {
+  margin: 10px auto;
+  z-index: 50000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 160px;
+}
+
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.info,
+ul.messages li.error {
+  margin: 0;
+  padding: 14px 20px;
+  color: var(--tertiary-color);
+}
+
+ul.messages li.success {
+  background-color: #a6eba6;
+  color: #048127;
+}
+ul.messages li.success a {
+  color: #0ac33e;
+}
+
+ul.messages li.error {
+  background-color: #a30029;
+  color: #e9828e;
+}
+ul.messages li.error a {
+  color: #e9828e;
+}
+
+ul.messages li.info {
+  background-color: #faffae;
+  color: #696b4e;
+}
+ul.messages li.info a {
+  color: #1586de;
+}
+
+ul.messages li.warning {
+  background-color: #de9404;
+  color: #f4eee4;
+}
+ul.messages li.warning a {
+  color: #f4eee4;
+}
+
+ul.messages li a.close {
+  margin: 0;
+  float: right;
+  opacity: 1;
+  border: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.message.sent{
+  color: red
+}
+.message.received{
+  color: green;
+}
+
+/* messages styling ends */
+
   .body {
     background: linear-gradient(
         to bottom,
@@ -175,13 +245,22 @@
   }
   
   .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 2;
     width: 100%;
     max-width: 100%;
-    box-shadow: var(--nav-shadow);
+    /* box-shadow: var(--nav-shadow); */
     /* background-color: white; */
+  }
+
+  .navbar.active {
+    box-shadow: var(--nav-shadow);
+    background-color: #cfcece;
+
+    
   }
   .navbar-wrapper {
     display: flex;
@@ -248,6 +327,12 @@
   }
   
   /* topbar */
+
+  .topBar.active {
+    position: unset;
+    transform: translate(0, -200px);
+    box-shadow: 0 0 1px 3px var(--secondary-color);
+  }
   
   .topBar-wrapper{
     display: flex;
@@ -255,7 +340,9 @@
     height: 70px;
     box-shadow: var(--nav-shadow);
     padding: var(--nav-pad-sm);
+    margin-top: 50px;
   }
+  
   
   .topBar-wrapper .leftItem{
     flex: 3;
@@ -544,8 +631,19 @@
     font-size: 16px;
     width: 100%;
     background-color: transparent;
+    font-family: 'handwritten-2';
+    font-weight: 800;
+    letter-spacing: 0.3ch;
+    color: #a35b14;
   
   }
+
+  .floatedFormContainer input:focus,
+  .floatedFormContainer input:active{
+    background-color: transparent;
+
+  }
+
   label{
     font-family: 'typewriter';
     font-size: 16px;
@@ -702,19 +800,31 @@
     display: none;
   }
 
-
-
   .post-edit{
     position: absolute;
     top: 0;
     right: 1vw;
-    opacity: .2;
     display: flex;
     gap: 20px;
   }
 
-  .post-edit .fa-edit{
-    background-color: teal;
+ 
+
+  .fa-edit{
+    color: teal;
+    opacity: .2;
+
+  }
+  .fa-edit:hover{
+    opacity: 1;
+  }
+  .fa-multiply{
+    color: tomato;
+    opacity: .2;
+
+  }
+  .fa-multiply:hover{
+    opacity: 1;
   }
 
   .single-post{
@@ -725,6 +835,237 @@
     flex-direction: column;
   }
   /* feeds ends */
+
+
+  /* custom html pages starts */
+
+/* succes page styles starts */
+#card {
+  position: relative;
+  max-width: 320px;
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+  font-family: var(--font-family);
+}
+#upper-side {
+  padding: 2em;
+  background-color: #8bc34a;
+  display: block;
+  color: #fff;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+#checkmark {
+  font-weight: lighter;
+  fill: #fff;
+  margin: -3.5em auto auto 20px;
+}
+
+/* failed.html styles starts */
+#link-verification-failed {
+  background-color: var(--tertiary-color);
+}
+#link-verification-failed h1:first-child {
+  color: var(--secondary-color-darker);
+}
+#link-verification-failed .error-container {
+  text-align: center;
+  font-size: 106px;
+  font-family: "Catamaran", sans-serif;
+  font-weight: 800;
+  margin: 70px 15px;
+}
+#link-verification-failed .error-container > span {
+  display: inline-block;
+  position: relative;
+}
+#link-verification-failed .error-container > span.four {
+  width: 136px;
+  height: 43px;
+  border-radius: 999px;
+  background: linear-gradient(
+      140deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.07) 43%,
+      transparent 44%,
+      transparent 100%
+    ),
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.06) 41%,
+      rgba(0, 0, 0, 0.07) 76%,
+      transparent 77%,
+      transparent 100%
+    ),
+    linear-gradient(to right, #d89ca4, #e27b7e);
+}
+#link-verification-failed .error-container > span.four:before,
+#link-verification-failed .error-container > span.four:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 999px;
+}
+#link-verification-failed .error-container > span.four:before {
+  width: 43px;
+  height: 156px;
+  left: 60px;
+  bottom: -43px;
+  background: linear-gradient(
+      128deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.07) 40%,
+      transparent 41%,
+      transparent 100%
+    ),
+    linear-gradient(
+      116deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.07) 50%,
+      transparent 51%,
+      transparent 100%
+    ),
+    linear-gradient(to top, #99749d, #b895ab, #cc9aa6, #d7969e, #e0787f);
+}
+#link-verification-failed .error-container > span.four:after {
+  width: 137px;
+  height: 43px;
+  transform: rotate(-49.5deg);
+  left: -18px;
+  bottom: 36px;
+  background: linear-gradient(
+    to right,
+    #99749d,
+    #b895ab,
+    #cc9aa6,
+    #d7969e,
+    #e0787f
+  );
+}
+
+#link-verification-failed .error-container > span.zero {
+  vertical-align: text-top;
+  width: 156px;
+  height: 156px;
+  border-radius: 999px;
+  background: linear-gradient(
+      -45deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.06) 50%,
+      transparent 51%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to top right,
+      #99749d,
+      #99749d,
+      #b895ab,
+      #cc9aa6,
+      #d7969e,
+      #ed8687,
+      #ed8687
+    );
+  overflow: hidden;
+  animation: bgshadow 5s infinite;
+}
+#link-verification-failed .error-container > span.zero:before {
+  content: "";
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 90px;
+  height: 90px;
+  background-color: transparent;
+  left: 0px;
+  bottom: 0px;
+  background: linear-gradient(
+      95deg,
+      transparent 0%,
+      transparent 8%,
+      rgba(0, 0, 0, 0.07) 9%,
+      transparent 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      85deg,
+      transparent 0%,
+      transparent 19%,
+      rgba(0, 0, 0, 0.05) 20%,
+      rgba(0, 0, 0, 0.07) 91%,
+      transparent 92%,
+      transparent 100%
+    );
+}
+#link-verification-failed .error-container > span.zero:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 999px;
+  width: 70px;
+  height: 70px;
+  left: 43px;
+  bottom: 43px;
+  background: #fdfaf5;
+  box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+#link-verification-failed .screen-reader-text {
+  position: absolute;
+  top: -9999em;
+  left: -9999em;
+}
+
+@keyframes bgshadow {
+  0% {
+    box-shadow: inset -160px 160px 0px 5px rgba(0, 0, 0, 0.4);
+  }
+  45% {
+    box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  }
+  55% {
+    box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: inset 160px -160px 0px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* demo stuff */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#link-verification-failed .zoom-area {
+  max-width: 490px;
+  margin: 30px auto 30px;
+  font-size: 19px;
+  text-align: center;
+}
+#link-verification-failed .link-container {
+  text-align: center;
+}
+#link-verification-failed a.more-link {
+  text-transform: uppercase;
+  font-size: 13px;
+  background-color: #de7e85;
+  padding: 10px 15px;
+  border-radius: 0;
+  color: #fff;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  text-decoration: none;
+  margin-top: 50px;
+  letter-spacing: 1px;
+}
+
+/* custom html pages  ends*/
   
   @media screen and (min-width: 768px) {
     .menu-wrapper .menu {

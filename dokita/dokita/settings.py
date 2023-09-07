@@ -1,5 +1,9 @@
 from pathlib import Path
-import os
+import os, environ
+
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -8,12 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--tf#!g5+(-7&m8fna*1o6h^cmo=8g*tw@22j&70)8jtbq3l3d7'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,8 +122,35 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# email host server configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_ID') 
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
+
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'
+
+
+# link expres
+EXPIRE_AFTER = "7d" # Will expire after seven day from link generation
+MAX_RETRIES = 100
+
+SUBJECT = f'Activate Your DOKITA account'
+REQUEST_NEW_EMAIL_TEMPLATE='authy/request_new_email.html'
+HTML_MESSAGE_TEMPLATE = "authy/email_message.html"
+
+VERIFICATION_SUCCESS_TEMPLATE = "authy/success.html"
+VERIFICATION_FAILED_TEMPLATE = "authy/failed.html"
+LINK_EXPIRED_TEMPLATE = 'authy/expired.html'
+NEW_EMAIL_SENT_TEMPLATE  = 'authy/new_email_sent.html'

@@ -17,11 +17,14 @@
             
                <div class="form" method="post">
                 {% for fields in form %}
-
                 <div class="floatedFormContainer" id="floatedFormContainer" >
-                    <label for="label_id">{{fields.label}}</label>
+                    <div class="fieldWrapper">
+                        {{ field.errors }}
+                        <label for="label_id"> {{fields.label}} </label>
                     {% comment %} <input type="text" name="lname" id="lname" data-placeholder=""> {% endcomment %}
-                    {{fields}}
+                        {{fields}}
+                    </div>
+                   
                 </div>
                 {% endfor %}
 
