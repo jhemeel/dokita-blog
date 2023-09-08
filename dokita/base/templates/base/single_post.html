@@ -2,8 +2,12 @@
 
 <div class="single-post">
   <div class="single-post-wrapper">
+    {% if page == 'single_page' %}
+    {% if blog %}
     {% include 'base/feeds.html' %}
     {% include 'base/sidebar.html' %}
+    {% endif %}
+    {% endif %}
   </div>
 </div>
 

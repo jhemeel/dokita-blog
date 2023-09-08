@@ -790,7 +790,10 @@ ul.messages li a.close {
     -webkit-line-clamp: initial;
     line-clamp: initial;
     -webkit-box-orient: initial;
+    column-count: 3;
+
   }
+
 
   .more a{
     color: tomato;

@@ -3,7 +3,8 @@
   <article class="post-wrapper">
     <div class="post">
         <div class="post-image">
-            <img src="/static/images/bg-image-1.avif" alt="">
+            {% comment %} <img src="/static/images/bg-image-1.avif" alt=""> {% endcomment %}
+            <img src={{blog.image.url}} alt="">
         </div>
 
         <div class="post-contents">
@@ -13,31 +14,21 @@
             </div>
     
             <div class="post-topic">
-                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <p>{{blog.topic.title}}</p>
             </div>
     
             <div class="post-details">
-                <div class="post-author">Author: <span><img class="author-image" src="/static/images/bg-image-4.jpg" alt=""></span> <span>Jemeel</span></div>
-                <div class="post-date">25 days ago</div>
+                <div class="post-author">Author: <span><img class="author-image" src={{blog.owner.avatar.url}} alt=""></span> <span>{{blog.owner.username}}</span></div>
+                <div class="post-date">{{blog.created_at | timesince}} ago</div>
             </div>
     
             <div class="post-description">
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo eum libero
-                assumenda reprehenderit laudantium maiores vel nesciunt, provident amet!
-                Minus deleniti possimus obcaecati nihil illo. Ullam maiores at voluptas
-                rerum vero quam voluptate possimus aspernatur, rem ab facere fugit, esse
-                totam adipisci, numquam molestiae. Quos quis autem laudantium optio
-                consectetur, saepe quas obcaecati qui praesentium at sunt in quisquam odio
-                doloribus rerum modi quod reprehenderit impedit! Ducimus dolores esse
-                necessitatibus vero tenetur natus dicta consectetur magnam, facere
-                excepturi? Laborum in voluptatibus nesciunt corporis. Illum fuga
-                architecto ipsam commodi, quaerat recusandae doloremque obcaecati odio
-                ratione tempore, earum labore rerum dolor error.
+                {{blog.body}}
               </p>
             </div>
             <div class="more">
-            <a href="{% url 'post'%}"><span>Read More</span></a>
+            <a href="{% url 'post' blog.id %}"><span>Read More</span></a>
 
             </div>
             <div class="post-edit">

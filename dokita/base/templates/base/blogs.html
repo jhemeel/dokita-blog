@@ -4,8 +4,14 @@
 
 <section class="blogs">
     <article class="blogs-wrapper">
+        {% for blog in blogs %}
+
         {% include 'base/feeds.html' %}
+
+        {% endfor %}
+
         {% include 'base/sidebar.html' %}
+
     </article>
 </section>
 
