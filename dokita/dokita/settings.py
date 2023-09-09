@@ -17,7 +17,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -74,12 +74,12 @@ WSGI_APPLICATION = 'dokita.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dokita_db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': env('DATABSE_PW'),
-        'HOST': 'localhost',
-        # 'PORT': '5432'
+        'HOST': 'containers-us-west-44.railway.app',
+        'PORT': '7829'
 
     }
 }
