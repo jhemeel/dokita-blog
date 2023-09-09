@@ -1,7 +1,10 @@
 from pathlib import Path
 import os, environ
 
-env = environ.Env()
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -14,11 +17,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
+DEBUG = env('DEBUG')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
-
+if DEBUG :
+    ALLOWED_HOSTS = [ 'localhost', '127.0.0.1']
+else:
+    ALLOWED_HOSTS = ['.vercel.app', '.now.sh',]
 
 # Application definition
 
