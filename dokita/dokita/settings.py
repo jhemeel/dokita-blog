@@ -75,14 +75,25 @@ WSGI_APPLICATION = 'dokita.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
+        'NAME': 'dokita_db',
         'USER': 'postgres',
-        'PASSWORD': env('DATABSE_PW'),
-        'HOST': 'containers-us-west-44.railway.app',
-        'PORT': '7829'
+        'PASSWORD':'Omolabake1',
+        'HOST': 'localhost',
+        'PORT': '5432'
 
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': env('DATABSE_PW'),
+#         'HOST': 'containers-us-west-44.railway.app',
+#         'PORT': '7829'
+
+#     }
+# }
 
 
 # Password validation
