@@ -508,7 +508,7 @@ ul.messages li a.close {
     overflow-y: hidden;
     display: flex;
     align-items: center;
-    height: 350px;
+    height: 50vh;
     gap: 10px;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
@@ -529,6 +529,7 @@ ul.messages li a.close {
     position: relative;
     min-width: 100%;
     padding-top: 50%;
+    height: 100%;
     
   
   }
