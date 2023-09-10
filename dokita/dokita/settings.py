@@ -1,10 +1,7 @@
 from pathlib import Path
 import os, environ
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
+env = environ.Env()
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,12 +14,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = env('DEBUG')
 # SECURITY WARNING: don't run with debug turned on in production!
-if DEBUG :
-    ALLOWED_HOSTS = [ 'localhost', '127.0.0.1']
-else:
-    ALLOWED_HOSTS = ['.vercel.app', '.now.sh',]
+DEBUG = False
+
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
+
 
 # Application definition
 
@@ -76,28 +72,28 @@ WSGI_APPLICATION = 'dokita.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dokita_db',
-#         'USER': 'postgres',
-#         'PASSWORD':'Omolabake1',
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
+        'NAME': 'dokita_db',
         'USER': 'postgres',
-        'PASSWORD': env('DATABSE_PW'),
-        'HOST': 'containers-us-west-44.railway.app',
-        'PORT': '7829'
+        'PASSWORD':'Omolabake1',
+        'HOST': 'localhost',
+        'PORT': '5432'
 
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': env('DATABSE_PW'),
+#         'HOST': 'containers-us-west-44.railway.app',
+#         'PORT': '7829'
+
+#     }
+# }
 
 
 # Password validation
@@ -134,12 +130,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = 'login'
