@@ -267,7 +267,7 @@ ul.messages li a.close {
     align-items: center;
     justify-content: space-between;
     padding: var(--nav-pad-sm);
-    height: 100px;
+    height: 80px;
 
   }
   .navbar a {
@@ -295,7 +295,7 @@ ul.messages li a.close {
   }
   .menu-wrapper .menu {
     position: fixed;
-    top: 105px;
+    top: 80px;
     left: -100%;
     display: flex;
     flex-direction: column;
@@ -309,7 +309,6 @@ ul.messages li a.close {
   }
   .menu.active {
     left: 0;
-    /* background-color: #cfcece; */
     background-color: #bfd7db;
     padding: 1rem;
   }
@@ -342,7 +341,7 @@ ul.messages li a.close {
     height: 70px;
     box-shadow: var(--nav-shadow);
     padding: var(--nav-pad-sm);
-    margin-top: 100px;
+    margin-top: 80px;
   }
   
   
