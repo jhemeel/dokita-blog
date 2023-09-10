@@ -3,7 +3,7 @@ import os, environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 environ.Env.read_env()
 
@@ -152,6 +152,8 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+
 
 
 MEDIA_URL = '/media/'
