@@ -19,14 +19,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-if DEBUG:
-    ALLOWED_HOSTS = ['.vercel.app', '.now.sh' ]
-    
-else:
-    ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
-    
 
-# ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
+
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
 
 
 # Application definition
