@@ -141,6 +141,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 #  forever-cacheable files and compression support..
 STORAGES = {
     # ...
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
